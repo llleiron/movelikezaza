@@ -1,0 +1,236 @@
+.option {
+    display: block;
+    margin-bottom: .5em;
+    width: 80%;
+}
+.checkbox-title {
+    font-family: AvenirLTStd-Roman,sans-serif;
+    font-size: 18px;
+    text-align: left;
+    letter-spacing: 2.57px;
+    margin-bottom: 50px;
+    margin-top: 100px;
+    margin-left: 9px;
+}
+.checkbox__option {
+    padding-left: 43px;
+}
+.checkbox {
+    width: 100%;
+    max-width: 646px;
+}
+
+div {
+    display: block;
+}
+
+form{
+    width: 155000;
+}
+header {
+    width: 100%;
+    height: 87px;
+    background-color: #000;
+    position: fixed;
+    z-index: 105;
+}
+
+*, body {
+    margin: 0;
+}
+* {
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+.M-main-lines {
+    width: calc(100% - 163px);
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    position: fixed;
+    pointer-events: none;
+    justify-content: space-between;
+}
+body {
+    font-family: "Avenir";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.M-title {
+    width: 100%;
+    padding-top: 110px;
+    margin-bottom: 50px;
+}
+.section-title {
+    font-family: AvenirNextLTPro-Regular,sans-serif;
+    font-size: 30px;
+    text-align: left;
+    letter-spacing: 22.71px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.input-title {
+    font-family: AvenirLTStd-Roman,sans-serif;
+    font-size: 18px;
+    text-align: left;
+    letter-spacing: 2.57px;
+    display: block;
+    margin-top: 60px;
+}
+.M-title-content {
+    display: block;
+    max-width: 647px;
+    width: 80%;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Avenir","sans-serif";
+    letter-spacing: .16px;
+    margin: 0 auto;
+}
+.black-horizontal {
+    height: 36px;
+    width: 100%;
+    background-color: #000;
+}
+.black-horizontal {
+    position: relative;
+    z-index: 115;
+}
+.sumbit {
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid transparent;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    height: 70px;
+    z-index: 100;
+    background: #1b1b1b;
+    text-decoration: none;
+    margin-top: 80px;
+    margin-bottom: 196px;
+    font-family: AvenirNextLTPro-Regular,sans-serif;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.M-form-fields {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
+.check {
+    display: flex;
+    padding-bottom: 10px;
+    font-size: 20px;
+    text-align: left;
+    font-family: AvenirNextLTPro-Regular,sans-serif;
+    letter-spacing: 0;
+}
+.checkbox input {
+    width: 26px;
+    height: 26px;
+
+}
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    -webkit-appearance: checkbox;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark-color(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: -internal-light-dark-color(white, black);
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+textarea{
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark-color(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: -internal-light-dark-color(white, black);
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+.L-commited-block, .L-commited-components {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.L-commited-block {
+    width: 100%;
+    justify-content: center;
+}
+.best, .worst {
+    position: absolute;
+}
+
+.L-commited-inputs {
+    padding: 0;
+    text-align: center;
+}
+.L-commited-inputs {
+    padding: 0 4px;
+    text-align: center;
+}
+.L-commited-inputs {
+    padding: 0 15px;
+    text-align: center;
+}
+.commited-number {
+    display: block;
+    margin-bottom: 50px;
+}
+
+.best, .worst {
+    position: absolute;
+}
+.worst {
+    left: -52px;
+}
+panel{
+    border-color: #000;
+    color: #000;
+}

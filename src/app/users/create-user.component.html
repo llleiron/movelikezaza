@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
   <title>
     Move like zaza
@@ -6,17 +7,391 @@
 </head>
 <body>
   
-  <div id=root>
-    <div class="App">
-      <div class="M-main-lines">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+
+  <div class="mainDiv">
+    <header></header>
+    <div class="ImgDiv">
+ 
+    </div>
+    <div class="Mainaaa">
+      <div class="M-title-content">
+        <img src="https://movelikezaza.com/logo.png" alt="logo" class="M-logo">
+        <p>Hello! Before we get training I would like to get an overview of your lifestyle & training goals/ history to help me make your session/(s) as personalised and beneficial as possible. Thank you for taking the time to fill out. </p>
       </div>
-       
-     <div class="Content">
+      <div class="black-horizontal"></div>
+      <div class="section-title">CLIENT DETAILS</div>
+      <form #userForm="ngForm" class="form" (ngSubmit)="saveUser(userForm)">
+        <span class="border-0"></span>
+        <div class="form-group" [class.has-error]="FirstName.invalid && FirstName.touched"  [class.has-success]="FirstName.valid">
+        <label for="FirstName" class="input-title">
+          First Name *
+        </label>
+        <input id="FirstName" name="FirstName" required [(ngModel)]="user.FirstName" type="text" class="form-control"  #FirstName='ngModel'>
+        <span class="help-block" *ngIf="FirstName.invalid && FirstName.touched">
+          First name is required.
+        </span>
+      </div>
+      <div class="form-group" [class.has-error]="LastName.invalid && LastName.touched" [class.has-success]="LastName.valid">
+        <label for="LastName" class="input-title">
+          Last Name *
+        </label>
+          <input id="LastName" name="LastName" [(ngModel)]="user.LastName" type="text" class="form-control" required #LastName="ngModel">
+          <span class="help-block" *ngIf="LastName.invalid && LastName.touched">
+            Last name is required. 
+          </span>
+      </div><div class="form-group" [class.has-error]="dateOfBirth.invalid && dateOfBirth.touched" [class.has-success]="dateOfBirth.valid"> 
+        <label for="dateOfBirth" class="input-title">Date of Birth *</label> 
+        <input id="dateOfBirth" #dateOfBirth="ngModel" required name='dateOfBirth' [(ngModel)]='user.dateOfBirth' type="text" 
+         class='form-control' bsDatepicker [bsConfig]="datePickerConfig">
+          <span class="help-block" *ngIf="dateOfBirth.invalid && dateOfBirth.touched">
+            Date of birth is required
+          </span>
+        </div>
+      
+      <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid">
+        <label for="email" class="input-title">Email *</label> 
+        <input id="email" name='email' #email="ngModel" [(ngModel)]='user.email' type="text" class='form-control' required email>
+        <span class="help-block" *ngIf="email.errors?.required && email.touched">
+          Email is required
+        </span>
+        <span class="help-block" *ngIf="email.errors?.email && email.touched">
+          Email is invalid
+        </span>
+      </div>
+      
+      <div class="form-group">
+        <label  class="input-title" for="phoneNumber">Phone Number *</label> 
+        <input id="phoneNumber" name='phoneNumber' [(ngModel)]='phoneNumber' type="text" class='form-control'>
+      </div>
+      <div class="checkbox" [class.has-error]="user.FatLoss == false && user.Cardiovascular == false && user.ImproveFlexibility == false && user.LearnNewSkill == false && user.SporstSpecific == false && user.ImproveStrength == false && user.RehabPrehab == false && user.MuscleGain == false">
+      <div class="checkbox-title">
+        What are you looking to specifically improve in with regards to your training, health and wellbeing? *
+      </div>
+      
+      <label class="check option">
+        <input type="checkbox" class="check__input" [(ngModel)]="user.FatLoss" #FatLoss="ngModel" name="FatLoss">
+        <span class="check__box"></span>
+        <span class="checkbox__option">Fat Loss</span>
+      </label>
+      
+      <label class="check option">
+        <input type="checkbox" class="check__input" [(ngModel)]="user.MuscleGain" #MuscleGain="ngModel" name="MuscleGain">
+        <span class="check__box"></span>
+        <span class="checkbox__option">Muscle Gain</span>
+      </label>
+      
+      <label class="check option">
+        <input type="checkbox" class="check__input" [(ngModel)]="user.RehabPrehab" #RehabPrehab="ngModel" name="RehabPrehab">
+        <span class="check__box"></span>
+        <span class="checkbox__option">Rehab / Prehab</span>
+      </label>
+      
+      <label class="check option">
+        <input type="checkbox" class="check__input" [(ngModel)]="user.ImproveStrength" #ImproveStrength="ngModel" name="ImproveStrength">
+        <span class="check__box"></span>
+        <span class="checkbox__option">Improve Strength</span>
+      </label>
+      
+      <label class="check option">
+        <input type="checkbox" class="check__input"  [(ngModel)]="user.SporstSpecific" #SporstSpecific="ngModel" name="SporstSpecific">
+        <span class="check__box"></span>
+        <span class="checkbox__option">Sports Specific</span>
+      </label>
+      
+      <label class="check option">
+        <input type="checkbox" class="check__input"  [(ngModel)]="user.LearnNewSkill" #LearnNewSkill="ngModel" name="LearnNewSkill">
+        <span class="check__box"></span>
+        <span class="checkbox__option">Learn a New Skills</span>
+      </label>
+      
+      <label class="check option">
+        <input type="checkbox" class="check__input" [(ngModel)]="user.ImproveFlexibility" #ImproveFlexibility="ngModel" name="ImproveFlexibility">
+        <span class="check__box"></span>
+        <span class="checkbox__option">
+          Improve Flexibility / Mobility</span>
+      </label>
+      
+      <label class="check option">
+        <input type="checkbox" class="check__input"[(ngModel)]="user.Cardiovascular" #Cardiovascular="ngModel" name="Cardiovascular">
+        <span class="check__box"></span>
+        <span class="checkbox__option">Cardiovascular endurance</span>
+      </label>
+      <span class="help-block" *ngIf="user.FatLoss == false && user.Cardiovascular == false && user.ImproveFlexibility == false && user.LearnNewSkill == false && user.SporstSpecific == false && user.ImproveStrength == false && user.RehabPrehab == false && user.MuscleGain == false">
+        At least one of this options is required.
+      </span>
+    </div>
+    
+    <div class="form-group" [class.has-error]="InfoAboutSpecifical.invalid && InfoAboutSpecifical.touched" [class.has-success]="InfoAboutSpecifical.valid">
+      <label for="InfoAboutSpecifical" class="lable-control">
+        Please provide details *
+      </label>
+        <textarea id="InfoAboutSpecifical" name="InfoAboutSpecifical" [(ngModel)]="user.InfoAboutSpecifical" type="text" class="form-control" required #InfoAboutSpecifical="ngModel"></textarea>
+        <span class="help-block" *ngIf="InfoAboutSpecifical.invalid && InfoAboutSpecifical.touched">
+          Details are required.
+        </span>
+    </div>
+    
+    <div class="checkbox" [class.has-error]="user.BeforeAfter == false && user.Weight == false && user.BodyFat == false && user.TapeMeasure == false && user.Performance == false && user.Assessments == false">
+    <div class="checkbox-title">
+      How would you like to monitor your progress? *
+    </div>
+    
+    <label class="check option">
+      <input type="checkbox" class="check__input" [(ngModel)]="user.BeforeAfter" #BeforeAfter="ngModel" name="BeforeAfter">
+      <span class="check__box"></span>
+      <span class="checkbox__option">Before & After Pics</span>
+    </label>
+    <label class="check option">
+      <input type="checkbox" class="check__input" [(ngModel)]="user.Weight" #Weight="ngModel" name="Weight">
+      <span class="check__box"></span>
+      <span class="checkbox__option">Weight</span>
+    </label>
+    <label class="check option">
+      <input type="checkbox" class="check__input" [(ngModel)]="user.BodyFat" #BodyFat="ngModel" name="BodyFat">
+      <span class="check__box"></span>
+      <span class="checkbox__option">BodyFat</span>
+    </label>
+    <label class="check option">
+      <input type="checkbox" class="check__input" [(ngModel)]="user.TapeMeasure" #TapeMeasure="ngModel" name="TapeMeasure">
+      <span class="check__box"></span>
+      <span class="checkbox__option">Tape Measurements</span>
+    </label>
+    <label class="check option">
+      <input type="checkbox" class="check__input" [(ngModel)]="user.Performance" #Performance="ngModel" name="Performance">
+      <span class="check__box"></span>
+      <span class="checkbox__option">Performance</span>
+    </label>
+    <label class="check option">
+      <input type="checkbox" class="check__input" [(ngModel)]="user.Assessments" #Assessments="ngModel" name="Assessments">
+      <span class="check__box"></span>
+      <span class="checkbox__option">Assessments</span>
+    </label>
+    <span class="help-block" *ngIf="user.BeforeAfter == false && user.Weight == false && user.BodyFat == false && user.TapeMeasure == false && user.Performance == false && user.Assessments == false">
+      At least one of this options is required.
+    </span>
+    
+    
+  </div>
+  <div class="form-group">
+    <label for="Achive" class="lable-control">
+      Why would you like to achieve this goal?
+    </label>
+    <textarea id="Achive" name="Achive" [(ngModel)]="user.Achive" type="text" class="form-control" #Achive="ngModel"></textarea>
+  </div>   
+
+  <div class="checkbox">
+  <div class="checkbox-title">
+  When would you like to achive this goal?
+  </div>
+  <label class="check option">
+    <input type="radio" [(ngModel)]="user.TimeToAchive" name="user.TimeToAchive" class="check__input" value="1-4weeks" #TimeToAchive="ngModel" >
+    <span class="check__box"></span>
+    <span class="checkbox__option">1-4 Weeks</span>
+  </label>
+  <label class="check option">
+    <input type="radio" [(ngModel)]="user.TimeToAchive" name="user.TimeToAchive" class="check__input" value="4-8weeks" #TimeToAchive="ngModel" >
+    <span class="check__box"></span>
+    <span class="checkbox__option">4-8 Weeks</span>
+  </label>
+  <label class="check option">
+    <input type="radio" [(ngModel)]="user.TimeToAchive" name="user.TimeToAchive" class="check__input" value="12weeksonwards" #TimeToAchive="ngModel" >
+    <span class="check__box"></span>
+    <span class="checkbox__option">12 Weeks Onwards</span>
+  </label>
+</div>
+  <div class="checkbox">
+    <div class="checkbox-title">
+      How committed are you?
+      (from 1(WORST) to 10(BEST))
+    </div>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Committed" name="user.Committed" class="radio-inline" value="1" #Committed="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">1</span>
+      
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Committed" name="user.Committed" class="radio-inline" value="2" #Committed="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">2</span>
+      
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Committed" name="user.Committed" class="radio-inline" value="3" #Committed="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">3</span>
+      
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Committed" name="user.Committed" class="radio-inline" value="4" #Committed="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">4</span>
+      
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Committed" name="user.Committed" class="radio-inline" value="5" #Committed="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">5</span>
+      
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Committed" name="user.Committed" class="radio-inline" value="6" #Committed="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">6</span>
+      
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Committed" name="user.Committed" class="radio-inline" value="7" #Committed="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">7</span>
+      
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Committed" name="user.Committed" class="radio-inline" value="8" #Committed="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">8</span>
+      
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Committed" name="user.Committed" class="radio-inline" value="9" #Committed="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">9</span>
+      
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Committed" name="user.Committed" class="radio-inline" value="10" #Committed="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">10</span>
+      
+    </label>
+  </div>
+  <div class="checkbox">
+    <div class="checkbox-title">
+      How many times a week do you train?
+    </div>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Train" name="user.Train" class="check__input" value="1-2 x week" #Train="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">1-2 x week</span>
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Train" name="user.Train" class="check__input" value="2-3 x week" #Train="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">2-3 x week</span>
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Train" name="user.Train" class="check__input" value="3+ x week" #Train="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">3+ x week</span>
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="DeatilAboutTrain" class="lable-control">
+      Please provide details:
+    </label>
+      <textarea id="DeatilAboutTrain" name="DeatilAboutTrain" [(ngModel)]="user.DeatilAboutTrain" type="text" class="form-control" #DeatilAboutTrain="ngModel"></textarea>
+  </div>
+  <div class="form-group" [class.has-error]="TrainingLike.invalid && TrainingLike.touched" [class.has-success]="TrainingLike.valid">
+    <label for="TrainingLike" class="lable-control">
+      What are your training likes & dislikes: *
+    </label>
+      <textarea id="TrainingLike" name="TrainingLike" [(ngModel)]="user.TrainingLike" type="text" class="form-control" required #TrainingLike="ngModel"></textarea>
+      <span class="help-block" *ngIf="TrainingLike.invalid && TrainingLike.touched">
+        This field is required.
+      </span>
+  </div>
+  <div class="checkbox">
+    <div class="checkbox-title">
+      Are you following a programme or App?
+    </div>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Follow" name="user.Follow" class="check__input" value="Yes" #Follow="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">Yes</span>
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Follow" name="user.Follow" class="check__input" value="No" #Follow="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">No</span>
+    </label>
+
+  </div>
+  <div class="checkbox" [class.has-error]="Coaching.touched && Coaching.invalid">
+    <div class="checkbox-title">
+      Have you had coaching or PT previously? *
+    </div>
+    <label class="check option">
+      <input type="radio" required [(ngModel)]="user.Coaching" name="user.Coaching" class="check__input" value="Yes" #Coaching="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">Yes</span>
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Coaching" name="user.Coaching" class="check__input" value="No" #Coaching="ngModel" required>
+      <span class="check__box"></span>
+      <span class="checkbox__option">No</span>
+    </label>
+    <span class="help-block" *ngIf="Coaching.touched && Coaching.invalid">
+      This field is required.
+    </span>
+    
+  </div>
+  <div class="checkbox" [class.has-error]="Problems.touched && Problems.invalid">
+    <div class="checkbox-title">
+      Do you have any injuries or health problems ? *
+    </div>
+    <label class="check option">
+      <input type="radio" required [(ngModel)]="user.Problems" name="user.Problems" class="check__input" value="Yes" #Problems="ngModel" >
+      <span class="check__box"></span>
+      <span class="checkbox__option">Yes</span>
+    </label>
+    <label class="check option">
+      <input type="radio" [(ngModel)]="user.Problems" name="user.Problems" class="check__input" value="No" #Problems="ngModel" required>
+      <span class="check__box"></span>
+      <span class="checkbox__option">No</span>
+    </label>
+    <span class="help-block" *ngIf="Problems.touched && Problems.invalid">
+      This field is required.
+    </span>  
+    <div *ngIf='user.Problems == "Yes"' class="form-group" [class.has-error]="DetailAboutProblems.invalid && DetailAboutProblems.touched" [class.has-success]="DetailAboutProblems.valid">
+      <label for="DetailAboutProblems" class="lable-control">
+        Please provide details *
+      </label>
+        <textarea id="DetailAboutProblems" name="DetailAboutProblems" [(ngModel)]="user.DetailAboutProblems" type="text" class="form-control" required #DetailAboutProblems="ngModel"></textarea>
+        <span class="help-block" *ngIf="DetailAboutProblems.invalid && DetailAboutProblems.touched">
+          Details are required.
+        </span>
+    </div>
+    <div class="form-group" [class.has-error]="Preventing.invalid && Preventing.touched" [class.has-success]="Preventing.valid">
+      <label for="Preventing" class="lable-control">
+        What (or who) is preventing you from achieving this goal? 
+      </label>
+        <textarea id="Preventing" name="Preventing" [(ngModel)]="user.Preventing" type="text" class="form-control" required #Preventing="ngModel"></textarea>
+        <span class="help-block" *ngIf="Preventing.invalid && Preventing.touched">
+          This field is required.
+        </span>
+    </div>
+    <div class="form-group" [class.has-error]="Supporting.invalid && Supporting.touched" [class.has-success]="Supporting.valid">
+      <label for="Supporting" class="lable-control">
+        Who is currently supporting you? *
+      </label>
+        <textarea id="Supporting" name="Supporting" [(ngModel)]="user.Supporting" type="text" class="form-control" required #Supporting="ngModel"></textarea>
+        <span class="help-block" *ngIf="Supporting.invalid && Supporting.touched">
+          This field is required.
+        </span>
+    </div>
+    
+  </div>
+
+        <button type="submit" class="sumbit" [disabled] = "userForm.invalid || (user.FatLoss == false && user.Cardiovascular == false && user.ImproveFlexibility == false && user.LearnNewSkill == false && user.SporstSpecific == false && user.ImproveStrength == false && user.RehabPrehab == false && user.MuscleGain == false) || (user.BeforeAfter == false && user.Weight == false && user.BodyFat == false && user.TapeMeasure == false && user.Performance == false && user.Assessments == false)" >Submit</button>
+        <!-- </div> -->
+    <footer></footer>
+  
+      
+      </form>
+    </div>
+    
+  </div>
+    <!-- <div class="Content">
    <header></header>
    <div class="sidebar"></div>
    <div class="M-title">
@@ -25,7 +400,7 @@
      </div>
    </div>
  <div class="black-horizontal"></div>
- <div class="M-form-fields">
+  <div class="M-form-fields">
    <div class="section-title">CLIENT DETAILS</div>
 
 <form #userForm="ngForm" class="form" (ngSubmit)="saveUser(userForm)">
@@ -402,11 +777,11 @@
   </div>
 
   
-</form>
+</form> -->
 
+<!-- 
+</div>
+</div>  -->
 
-</div>
-</div>
-</div>
-</div>
 </body>
+</html>
